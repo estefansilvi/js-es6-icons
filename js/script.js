@@ -5,97 +5,97 @@ Definire un array di oggetti; ogni oggetto rappresenta un'icona, che è caratter
 */
 const icons = [
   {
-    nome:'CAT',
+    nome:'cat',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'DROW',
+    nome:'crow',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'DOG',
+    nome:'dog',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'DOVE',
+    nome:'dove',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'DRAGON',
+    nome:'dragon',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'HORSE',
+    nome:'horse',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'HIPPO',
+    nome:'hippo',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'FISH',
+    nome:'fish',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'animali'
   },
   {
-    nome:'CARROT',
+    nome:'carrot',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'frutta'
   },
   {
-    nome:'APPLE-ALT',
+    nome:'apple-alt',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'frutta'
   },
   {
-    nome:'LEMON',
+    nome:'lemon',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'frutta'
   },
   {
-    nome:'PEPPER-HOT',
+    nome:'pepper-hot',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'frutta'
   },
   {
-    nome:'USER-ASTRONAUT',
+    nome:'user-astronaut',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'mestieri'
   },
   {
-    nome:'USER-GRADUATE',
+    nome:'user-graduate',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'mestieri'
   },
   {
-    nome:'USER-NINJA',
+    nome:'user-ninja',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'mestieri'
   },
   {
-    nome:'USER-SECRET',
+    nome:'user-secret',
     prefisso:'fa-',
     famiglia:'fas',
     tipo:'mestieri'
@@ -103,39 +103,38 @@ const icons = [
 ];
 
 
-const containerIcons = document.getElementById('container');
-
+const containerIcons = $('#container');
 icons.forEach((element) => {
-
-    containerIcons.innerHTML +=`
+    const newHTML = `
     <div>
-    <i class="fas  ></i>
-
-    <i class="fas fa-crow" ></i>
-
-    <i class="fas fa-dog" ></i>
-
-    <i class="fas fa-dove" ></i>
-
-    <i class="fas fa-dragon" ></i>
-
-    <i class="fas fa-horse" ></i>
-
-    <i class="fas fa-hippo" ></i>
-
-    <i class="fas fa-fish" ></i>
-
-    <i class="fas fa-carrot" ></i>
-
-    <i class="fas fa-apple-alt" ></i>
-
-    <i class="fas fa-lemon" ></i>
-
-    <i class="fas fa-pepper-hot" ></i>
-
-    <i class="fas fa-user-astonaut"  ></i>
-    ${element.nome}
+      <i id="${element.nome}" class="${element.famiglia} ${element.prefisso}${element.nome}"></i>
+      <div class="title">${element.nome.toUpperCase()}</div>
     </div>
-
     `
+    containerIcons.append(newHTML);
 });
+
+console.log('ciao')
+/*
+Milestone 2:
+- Definire un array di colori e associare ad ogni tipo di icona un colore.
+- Visualizzare le icone di colore diverso in base al tipo.
+*/
+
+
+const colorList = ['blue', 'orange','violet'];
+const container = document.getElementsByClassName('container')[0];
+
+let familyColor;
+icons.forEach((element)=>{
+  if (element.tipo === 'animali'){
+    familyColor= colorList[0];
+  }else if (element.tipo === 'frutta'){
+    familyColor= colorList[1];
+  } else{
+    familyColor= colorList[2];
+  }
+
+ $(`#${element.nome}`).addClass(familyColor);
+
+})

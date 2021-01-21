@@ -1,0 +1,15 @@
+.container{
+  display:flex;
+}
+
+.blue{
+  color: blue;
+}
+
+.orange{
+  color:orange;
+}
+
+.violet{
+  color: violet;
+}
